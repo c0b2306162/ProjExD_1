@@ -23,13 +23,15 @@ def main():
         key_list = pg.key.get_pressed() #練習８－３：キーの降下状態を取得
         if key_list[pg.K_UP]:#上矢印キーがTrueなら
             kk_rct.move_ip((0, -1))
-        if key_list[pg.K_DOWN]:#下矢印キーがTrueなら
+        elif key_list[pg.K_DOWN]:#下矢印キーがTrueなら
             kk_rct.move_ip((0, +1))
-        if key_list[pg.K_LEFT]:#左矢印キーがTrueなら
+        elif key_list[pg.K_LEFT]:#左矢印キーがTrueなら
             kk_rct.move_ip((-1, 0))
-        if key_list[pg.K_RIGHT]:#右矢印キーがTrueなら
-            kk_rct.move_ip((+1, 0))
-        
+        elif key_list[pg.K_RIGHT]:#右矢印キーがTrueなら
+            kk_rct.move_ip((+2, 0))    #演習１：倍速で右に進む
+        else:
+            kk_rct.move_ip((-1, 0))    #演習１：背景と同じく左に流れる
+
         x = -(tmr%3200) #練習６
         screen.blit(bg_img, [x, 0])#練習３
         screen.blit(bg1_img, [x+1600, 0])#練習７
