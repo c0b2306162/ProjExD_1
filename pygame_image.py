@@ -38,7 +38,7 @@ def main():
         screen.blit(kk_img, kk_rct) #練習４
         pg.display.update()
         tmr += 1        
-        clock.tick(400) #練習５
+        clock.tick(200) #練習５
 
 
 if __name__ == "__main__":
