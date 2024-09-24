@@ -20,17 +20,20 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+
         key_list = pg.key.get_pressed() #練習８－３：キーの降下状態を取得
+        dx, dy = 0, 0
         if key_list[pg.K_UP]:#上矢印キーがTrueなら
-            kk_rct.move_ip((0, -1))
+            dy = -1
         elif key_list[pg.K_DOWN]:#下矢印キーがTrueなら
-            kk_rct.move_ip((0, +1))
+            dy = +1
         elif key_list[pg.K_LEFT]:#左矢印キーがTrueなら
-            kk_rct.move_ip((-1, 0))
+            dx = -1
         elif key_list[pg.K_RIGHT]:#右矢印キーがTrueなら
-            kk_rct.move_ip((+2, 0))    #演習１：倍速で右に進む
+            dx = +2
         else:
-            kk_rct.move_ip((-1, 0))    #演習１：背景と同じく左に流れる
+            dx = -1
+        kk_rct.move_ip(dx, dy)
 
         x = -(tmr%3200) #練習６
         screen.blit(bg_img, [x, 0])#練習３
